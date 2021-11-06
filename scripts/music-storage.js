@@ -14,7 +14,13 @@ let audioArray = [
   {
     'music': './music/audio2.mp3',
     'image': './image/image-music2.jpg',
-    'name': 'Piano Sonata No',
-    'author': 'C Minor'
+    'name': 'Piano Sonata No 8',
+    'author': 'Mozart'
+  },
+  {
+    'music': './music/audio3.mp3',
+    'image': './image/image-music3.jpg',
+    'name': 'Piano Sonata No. 11',
+    'author': 'Wolfgang Amadeus Mozart'
   }
 ]
