@@ -59,7 +59,7 @@ audio.addEventListener('ended', nextAudios)
 
 function nextAudios() {
   idAudio++
-  if (idAudio > 2) {
+  if (idAudio > audioArray.length - 1) {
     idAudio = 0
   }
   playing = false;
@@ -80,7 +80,7 @@ function nextAudios() {
 function prevAudios() {
   idAudio--
   if (idAudio < 0) {
-    idAudio = 2;
+    idAudio = audioArray.length - 1;
     console.log(idAudio + ' ошибка')
   }
   playing = false
