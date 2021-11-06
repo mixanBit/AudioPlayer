@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Exo 2", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.audio_player {
+  border-radius: 5px;
+  width: 300px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  background-color: #191919;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.image {
+  border-radius: 7px;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+.controls .name {
+  width: 100%;
+  text-align: center;
+}
+.controls .name h1 {
+  color: #e6e7eb;
+  letter-spacing: 1px;
+  font-size: 22px;
+}
+.controls .name p {
+  color: #7facd6;
+  font-size: 18px;
+}
+.controls .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 45px;
+  margin-top: 35px;
+  padding-bottom: 20px;
+}
+.controls .buttons button {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.controls .buttons #prevAudio {
+  background-image: url(../image/prev.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.controls .buttons #playAudio {
+  width: 40px !important;
+  height: 40px !important;
+  background-image: url(../image/play.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.controls .buttons #nextAudio {
+  background-image: url(../image/next.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.controls .sound {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
