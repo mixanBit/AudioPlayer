@@ -1,17 +1,41 @@
-let audio = new Audio("./music/audio1.mp3")
+let audio
     // rangeAudio = document.getElementById('rangeAudio')
-    play = document.getElementById('playAudio')
+    play = document.querySelector('.playAudio')
 
-    prevAudio = document.getElementById('prevAudio')
-    nextAudio = document.getElementById('nextAudio')
+    // prevAudio = document.getElementById('prevAudio')
+    // nextAudio = document.getElementById('nextAudio')
     playing = true
     idAudio = 0
+    
+    let image = document.querySelector('.image')
+    initSoundImage()
+    let soundName = document.querySelector('.sound_name')
+    initSoundName()
+    let soundAuthor = document.querySelector('.sound_author')
+    initSoundAuthor()
     // audio.volume = 0.2
+
+function initSoundImage() {
+  image.style.backgroundImage = `url(${audioArray[idAudio].image})`
+}
+function initSoundName() {
+  soundName.innerText = audioArray[idAudio].name
+}
+function initSoundAuthor() {
+  soundAuthor.innerText = audioArray[idAudio].author
+}
+
+
+initAudio()
+function initAudio() {
+  audio = new Audio(audioArray[idAudio].music)
+}
 
 // rangeAudio.onchange = function (e) {
 //   console.log(e.target.value)
 //   audio.volume = e.target.value / 100;
 // }
+
 
 play.addEventListener('click', () => {
   if (playing) {
@@ -20,7 +44,7 @@ play.addEventListener('click', () => {
     play.style = 'background-image: url(./image/pause.png);'
   }
   if (!playing) {
-    console.log('pause');
+    console.log('pause')
     audio.pause()
     play.style = 'background-image: url(./image/play.png);'
   }
@@ -28,48 +52,50 @@ play.addEventListener('click', () => {
 })
 
 
+document.querySelector('.nextAudio').addEventListener('click', nextAudios)
+document.querySelector('.prevAudio').addEventListener('click', prevAudios)
+audio.addEventListener('ended', nextAudios)
 
-nextAudio.addEventListener('click', () => {
-  nextAudios()
-})
-
-prevAudio.addEventListener('click', () => {
-  prevAudios()
-})
-
-audio.addEventListener('ended', () => {
-  nextAudios();
-})
 
 function nextAudios() {
   idAudio++
   if (idAudio > 2) {
-    idAudio = 0;
+    idAudio = 0
   }
-  console.log(idAudio);
   playing = false;
   audio.pause()
   audio = new Audio('./music/audio1/silent.wav')
-  audio = new Audio(audioArray[idAudio].music);
-  console.log(audioArray[idAudio].music);
+  initAudio()
+  initSoundImage()
+  initSoundName()
+  initSoundAuthor()
   audio.play()
   play.style = 'background-image: url(./image/pause.png);'
+
+  console.log(idAudio)
+  console.log(audioArray[idAudio].music)
+  console.log(audioArray[idAudio].name)
 }
 
 function prevAudios() {
   idAudio--
   if (idAudio < 0) {
     idAudio = 2;
-    console.log(idAudio + ' ошибка');
+    console.log(idAudio + ' ошибка')
   }
-  console.log(idAudio);
-  playing = false;
+  playing = false
   audio.pause()
   audio = new Audio('./music/audio1/silent.wav')
-  audio = new Audio(audioArray[idAudio].music);
-  console.log(audioArray[idAudio].music);
+  initAudio()
+  initSoundImage()
+  initSoundName()
+  initSoundAuthor()
   audio.play()
   play.style = 'background-image: url(./image/pause.png);'
+
+  console.log(idAudio)
+  console.log(audioArray[idAudio].music)
+  console.log(audioArray[idAudio].name)
 }
 
 
