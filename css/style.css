@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
+:root {
+  --bg1: #191919;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,17 +15,25 @@ a {
   text-decoration: none;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  button, img {
+    cursor: none !important;
+  }
+}
+
 button {
   border: none;
   outline: none;
+  cursor: none;
 }
 
 .audio_player {
   border-radius: 5px;
   width: 300px;
+  position: relative;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  background-color: #191919;
+  background-color: var(--bg1);
   margin: auto;
   margin-top: 50px;
   padding: 20px;
@@ -111,14 +123,60 @@ button {
   background-position: center;
   background-size: cover;
 }
-.controls .sound {
+.controls .sound_menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.controls .sound_menu img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.controls .sound {
+  border-radius: 5px;
+  width: 60px;
+  height: 80%;
+  position: absolute;
+  top: 40px;
+  right: -80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-box-shadow: 0 2px 4px #000001;
+          box-shadow: 0 2px 4px #000001;
+  background-color: var(--bg1);
+  padding: 7px;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+.controls .sound .volume {
+  color: white;
+}
+.controls .sound input {
+  position: absolute;
+  top: 60px;
+  right: -120px;
+  width: 300px;
+  cursor: pointer;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  margin-top: 120px;
+}
+
+.sound_open {
+  visibility: visible !important;
+  opacity: 1 !important;
 }

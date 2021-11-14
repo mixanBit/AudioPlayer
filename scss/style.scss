@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap');
 
+:root{
+    --bg1: #191919;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,15 +11,21 @@
     font-family: 'Exo 2', sans-serif;
 }
 
-body{}
-
 a{
     text-decoration: none;
+}
+
+button, img{
+    @media (hover: none) and (pointer: coarse) {
+        cursor: none !important;  
+    }
 }
 
 button{
     border: none;
     outline: none;
+    cursor: none;  
+
 }
 
 @mixin br {
@@ -25,8 +35,9 @@ button{
 .audio_player{
     border-radius: 5px;
     width: 300px;
+    position: relative;
     box-shadow: 0 2px 4px rgba(0,0,0,.7);
-    background-color: #191919;
+    background-color: var(--bg1);
     margin: auto;
     margin-top: 50px;
     padding: 20px;
@@ -105,11 +116,50 @@ button{
                     background-size: cover;
                 }
         }
+        .sound_menu{
+            display: flex;
+            justify-content: flex-end;
+                img{
+                    @include br;
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                }
+        }
         .sound{
             @include br;
+            border-radius: 5px;
+            width: 60px;
+            height: 80%;
+            position: absolute;
+            top: 40px;
+            right: -80px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-                
+            visibility: hidden;
+            opacity: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0.7);
+            background-color: var(--bg1);
+            padding: 7px;
+            transition: .3s linear;
+                .volume{
+                    color: white;
+                }
+                input{
+                    @include br;
+                    position: absolute;
+                    top: 60px;
+                    right: -120px;
+                    width: 300px;
+                    cursor: pointer;
+                    transform: rotate(270deg);
+                    margin-top: 120px;
+                }
         }
+}
+
+.sound_open{
+    visibility: visible !important;
+    opacity: 1 !important;
 }
