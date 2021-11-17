@@ -135,6 +135,27 @@ button {
   cursor: pointer;
   width: 30px;
   height: 30px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+.controls .sound_menu img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.controls .sound_menu .btn_download {
+  cursor: pointer;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  margin: auto;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  margin-left: 0;
+}
+.controls .sound_menu .btn_download:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 .controls .sound {
   border-radius: 5px;
@@ -142,7 +163,7 @@ button {
   height: 80%;
   position: absolute;
   top: 40px;
-  right: -80px;
+  right: -40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,4 +200,5 @@ button {
 .sound_open {
   visibility: visible !important;
   opacity: 1 !important;
+  right: -80px !important;
 }

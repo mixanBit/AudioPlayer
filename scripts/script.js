@@ -20,6 +20,7 @@ initSoundAuthor()
 function initAudio() {
   audio = new Audio(audioArray[idAudio].music)
   audio.volume = 0.2;
+  downloadAudio();
 }
 function initSoundImage() {
   image.style.backgroundImage = `url(${audioArray[idAudio].image})`
@@ -129,5 +130,8 @@ rangeAudio.onchange = function (e) {
 //   });
 // })
 // конец регулятор громкости
+
+
+
 
 
