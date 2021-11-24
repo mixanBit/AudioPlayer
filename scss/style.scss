@@ -39,7 +39,7 @@ button{
     box-shadow: 0 2px 4px rgba(0,0,0,.7);
     background-color: var(--bg1);
     margin: auto;
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 20px;
 }
 
@@ -58,16 +58,26 @@ button{
 
 .controls{
     @include br;
-    height: 170px;
+    min-height: 170px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     margin-top: 20px;
+        .sound_line{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+                .progress{
+                    width: 200px;
+                    transition: .2s linear;
+                }
+        }
         .name{
             width: 100%;
             text-align: center;
             margin: auto;
-            margin-top: 0;
+            margin-top: 10px;
                 h1{
                     color: #e6e7eb;
                     letter-spacing: 1px;
@@ -86,7 +96,7 @@ button{
             justify-content: center;
             align-items: center;
             grid-gap: 45px;
-            // margin-top: 35px;
+            margin-top: 20px;
             padding-bottom: 20px;
                 button{
                     cursor: pointer;

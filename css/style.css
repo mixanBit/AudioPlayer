@@ -35,7 +35,7 @@ button {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   background-color: var(--bg1);
   margin: auto;
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 20px;
 }
 
@@ -52,7 +52,7 @@ button {
 }
 
 .controls {
-  height: 170px;
+  min-height: 170px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,11 +65,28 @@ button {
           justify-content: flex-end;
   margin-top: 20px;
 }
+.controls .sound_line {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls .sound_line .progress {
+  width: 200px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
 .controls .name {
   width: 100%;
   text-align: center;
   margin: auto;
-  margin-top: 0;
+  margin-top: 10px;
 }
 .controls .name h1 {
   color: #e6e7eb;
@@ -94,6 +111,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 45px;
+  margin-top: 20px;
   padding-bottom: 20px;
 }
 .controls .buttons button {

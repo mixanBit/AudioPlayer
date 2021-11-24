@@ -5,7 +5,7 @@ let rangeAudio = document.getElementById('rangeAudio')
     playing = true
     idAudio = 0
 let volumePercentage;
-
+let progress = document.querySelector('.progress');
 //Инициализация данных
 let audio
 initAudio()
@@ -20,7 +20,7 @@ initSoundAuthor()
 function initAudio() {
   audio = new Audio(audioArray[idAudio].music)
   audio.volume = 0.2;
-  downloadAudio();
+  downloadAudio()
 }
 function initSoundImage() {
   image.style.backgroundImage = `url(${audioArray[idAudio].image})`
@@ -75,7 +75,7 @@ function nextAudios() {
   initSoundAuthor()
   audio.play()
   play.style = 'background-image: url(./image/pause.png);'
-
+  
   console.log(audio.volume);
   console.log(idAudio)
   console.log(audioArray[idAudio].music)
@@ -119,19 +119,19 @@ rangeAudio.onchange = function (e) {
   audio.volume = volumePercentage;
   console.log(e.target.value)
 }
-
-// $('#rangeAudio[type=range]').on('input', function(e){
-//   var min = e.target.min,
-//       max = e.target.max,
-//       val = e.target.value;
-
-//   $(e.target).css({
-//     'backgroundSize': (val - min) * 100 / (max - min) + '% 100%'
-//   });
-// })
 // конец регулятор громкости
 
 
+// TEST
+let test1 = document.querySelector('.test1');
 
+test1.addEventListener('click', () =>{
+  initProgress()
+})
 
-
+function initProgress() {
+  progress.max = Number(audio.duration.toFixed())
+  // progress.value = Number(audio.currentTime.toFixed())
+  console.log(progress.max);
+  // console.log(progress.value);
+}
