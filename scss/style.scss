@@ -217,6 +217,8 @@ button{
             display: flex;
             justify-content: flex-end;
             margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
                 img{
                     @include br;
                     cursor: pointer;

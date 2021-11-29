@@ -189,6 +189,8 @@ button {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .controls .sound_menu img {
   cursor: pointer;
