@@ -21,7 +21,7 @@
     <script src="scripts/modal-sound.js" defer></script>
   </head>
   <body>
-    <div class="speed">
+    <!-- <div class="speed">
       <div class="speed_section">
         <div class="speed_item line">1</div>
         <div class="speed_item">2</div>
@@ -33,7 +33,7 @@
         <img class="arrow_left" src="" alt="left">
         <img class="arrow_right" src="" alt="right">
       </div>
-    </div>
+    </div> -->
 
     <div class="audio_player">
       <div class="image"></div>
@@ -46,11 +46,13 @@
           <h1 class="sound_name"></h1>
           <p class="sound_author"></p>
         </div>
+
         <div class="buttons">
           <button class="prevAudio"></button>
           <button class="playAudio"></button>
           <button class="nextAudio"></button>
         </div>
+
         <div class="sound_menu">
           <a class="btn_download" download href="">
             <img
@@ -59,6 +61,7 @@
               alt="настройка звука"
             />
           </a>
+          <img class="speed_btn" src="image/speed.png" alt="">
           <img
             class="btn_sound"
             src="image/btn-sound.png"
@@ -66,14 +69,21 @@
           />
         </div>
 
-        <div class="sound">
-          <div class="volume">
-            <output id="rangevalue">30</output>
-            <span>%</span>
-          </div>
-          <input id="rangeAudio" type="range" min="0" max="100" value="20" />
+        <div class="speed">
+          <img class="speed_exit" src="image/exit.png"></img>
+          <input class="line" type="range" min="" max="" value="0">
+          <div class="speed_value">00</div>
         </div>
+      </div><!-- controls -->
+
+      <div class="sound">
+        <div class="volume">
+          <output id="rangevalue">30</output>
+          <span>%</span>
+        </div>
+        <input id="rangeAudio" type="range" min="0" max="100" value="20" />
       </div>
-    </div>
+      
+    </div><!-- audio_player -->
   </body>
 </html>

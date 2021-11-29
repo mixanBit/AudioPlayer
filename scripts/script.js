@@ -14,7 +14,7 @@ let progress = document.querySelector('.progress');
 let audio
 initAudio()
 let image = document.querySelector('.image')
-initSoundImage()
+initSoundImage()  
 let soundName = document.querySelector('.sound_name')
 initSoundName()
 let soundAuthor = document.querySelector('.sound_author')
@@ -134,7 +134,3 @@ rangeAudio.onchange = function (e) {
 }
 // конец регулятор громкости
 
-function setSpeed(value) {
-  audioSpeed = value
-  audio.playbackRate = value
-}
