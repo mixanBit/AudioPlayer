@@ -4,6 +4,7 @@ prevAudio = document.getElementById('prevAudio')
 nextAudio = document.getElementById('nextAudio')
 playing = true
 idAudio = 0
+let audioSpeed = 1
 let volumePercentage;
 let progress = document.querySelector('.progress');
 //Инициализация данных
@@ -82,6 +83,7 @@ function setAudio() {
   audio.removeAttribute('src')
   audio.load()
   initAudio()
+  setSpeed(audioSpeed)
   if (volumePercentage == undefined) {
     audio.volume = 0.2;
   }
@@ -132,4 +134,7 @@ rangeAudio.onchange = function (e) {
 }
 // конец регулятор громкости
 
-
+function setSpeed(value) {
+  audioSpeed = value
+  audio.playbackRate = value
+}
