@@ -60,7 +60,7 @@ button{
             }
     }
     .speed_active{
-        bottom: -15px !important;
+        bottom: 0px !important;
     }
 // .speed{
 //     border-radius: 10px;
@@ -125,6 +125,7 @@ button{
     margin: auto;
     margin-top: 40px;
     padding: 20px;
+    padding-bottom: 10px;
 }
 
 .image{
@@ -215,6 +216,7 @@ button{
         .sound_menu{
             display: flex;
             justify-content: flex-end;
+            margin-bottom: 20px;
                 img{
                     @include br;
                     cursor: pointer;

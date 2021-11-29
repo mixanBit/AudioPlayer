@@ -61,7 +61,7 @@ button {
 }
 
 .speed_active {
-  bottom: -15px !important;
+  bottom: 0px !important;
 }
 
 .audio_player {
@@ -74,6 +74,7 @@ button {
   margin: auto;
   margin-top: 40px;
   padding: 20px;
+  padding-bottom: 10px;
 }
 
 .image {
@@ -187,6 +188,7 @@ button {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-bottom: 20px;
 }
 .controls .sound_menu img {
   cursor: pointer;
