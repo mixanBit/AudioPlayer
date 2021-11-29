@@ -1,12 +1,15 @@
 let rangeAudio = document.getElementById('rangeAudio')
-    play = document.querySelector('.playAudio')
-    prevAudio = document.getElementById('prevAudio')
-    nextAudio = document.getElementById('nextAudio')
-    playing = true
-    idAudio = 0
+play = document.querySelector('.playAudio')
+prevAudio = document.getElementById('prevAudio')
+nextAudio = document.getElementById('nextAudio')
+playing = true
+idAudio = 0
 let volumePercentage;
 let progress = document.querySelector('.progress');
 //Инициализация данных
+/**
+ * @type {HTMLAudioElement}
+ */
 let audio
 initAudio()
 let image = document.querySelector('.image')
@@ -19,9 +22,25 @@ initSoundAuthor()
 
 function initAudio() {
   audio = new Audio(audioArray[idAudio].music)
+  audio.removeEventListener('loadedmetadata', metadataload)
+  audio.removeEventListener('timeupdate', timeSet)
+  audio.addEventListener('loadedmetadata', metadataload)
+  audio.addEventListener('timeupdate', timeSet)
   audio.volume = 0.2;
   downloadAudio()
 }
+
+function metadataload() {
+  progress.max = audio.duration.toFixed()
+}
+
+function timeSet() {
+  progress.value = audio.currentTime.toFixed()
+}
+
+audio.addEventListener('loadedmetadata', metadataload)
+audio.addEventListener('timeupdate', timeSet)
+
 function initSoundImage() {
   image.style.backgroundImage = `url(${audioArray[idAudio].image})`
 }
@@ -54,20 +73,19 @@ document.querySelector('.nextAudio').addEventListener('click', nextAudios)
 document.querySelector('.prevAudio').addEventListener('click', prevAudios)
 audio.addEventListener('ended', nextAudios)
 
-function nextAudios() {
-  idAudio++
-  if (idAudio > audioArray.length - 1) {
-    idAudio = 0
-  }
+
+function setAudio() {
   playing = false;
   audio.pause()
   // очистка переменной методом взятия пустого звука
-  audio = new Audio('./music/audio1/silent.wav')
+  audio.removeAttribute('currentSrc')
+  audio.removeAttribute('src')
+  audio.load()
   initAudio()
-  if(volumePercentage == undefined){
+  if (volumePercentage == undefined) {
     audio.volume = 0.2;
   }
-  else{
+  else {
     audio.volume = volumePercentage;
   }
   initSoundImage()
@@ -75,11 +93,19 @@ function nextAudios() {
   initSoundAuthor()
   audio.play()
   play.style = 'background-image: url(./image/pause.png);'
-  
-  console.log(audio.volume);
-  console.log(idAudio)
-  console.log(audioArray[idAudio].music)
-  console.log(audioArray[idAudio].name)
+}
+
+function nextAudios() {
+  idAudio++
+  if (idAudio > audioArray.length - 1) {
+    idAudio = 0
+  }
+  setAudio()
+
+  // console.log(audio.volume);
+  // console.log(idAudio)
+  // console.log(audioArray[idAudio].music)
+  // console.log(audioArray[idAudio].name)
 }
 
 function prevAudios() {
@@ -87,27 +113,12 @@ function prevAudios() {
   if (idAudio < 0) {
     idAudio = audioArray.length - 1;
   }
-  playing = false
-  audio.pause()
-  // очистка переменной методом взятия пустого звука
-  audio = new Audio('./music/audio1/silent.wav')
-  initAudio()
-  if(volumePercentage == undefined){
-    audio.volume = 0.2;
-  }
-  else{
-    audio.volume = volumePercentage;
-  }
-  initSoundImage()
-  initSoundName()
-  initSoundAuthor()
-  audio.play()
-  play.style = 'background-image: url(./image/pause.png);'
+  setAudio()
 
-  console.log(audio.volume);
-  console.log(idAudio)
-  console.log(audioArray[idAudio].music)
-  console.log(audioArray[idAudio].name)
+  // console.log(audio.volume);
+  // console.log(idAudio)
+  // console.log(audioArray[idAudio].music)
+  // console.log(audioArray[idAudio].name)
 }
 // конец Событие переключения
 
@@ -122,16 +133,3 @@ rangeAudio.onchange = function (e) {
 // конец регулятор громкости
 
 
-// TEST
-let test1 = document.querySelector('.test1');
-
-test1.addEventListener('click', () =>{
-  initProgress()
-})
-
-function initProgress() {
-  progress.max = Number(audio.duration.toFixed())
-  // progress.value = Number(audio.currentTime.toFixed())
-  console.log(progress.max);
-  // console.log(progress.value);
-}

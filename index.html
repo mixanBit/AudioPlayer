@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/music-player.ico">
-    <link rel="icon" type="image/vnd.microsoft.icon" href="image/music-player.ico">
-    <link rel="icon" type="image/x-icon" href="image/music-player.ico">
-    <link rel="icon" sizes="64x64" href="image/music-player.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="image/music-player.ico" />
+    <link
+      rel="icon"
+      type="image/vnd.microsoft.icon"
+      href="image/music-player.ico"
+    />
+    <link rel="icon" type="image/x-icon" href="image/music-player.ico" />
+    <link rel="icon" sizes="64x64" href="image/music-player.ico" />
     <title>Audio Player</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="scripts/music-storage.js" defer></script>
     <script src="scripts/download-audio.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/modal-sound.js" defer></script>
-</head>
-<body>
-  <button class="test1">test 1</button>
-
+  </head>
+  <body>
 
     <div class="audio_player">
-        <div class="image"></div>
-        <div class="controls">
-          <div class="sound_line">
-            <progress class="progress" max="100" value="20"></progress>
-          </div>
-          <div class="name">
-            <h1 class="sound_name"></h1>
-            <p class="sound_author"></p>
-          </div>
-          <div class="buttons">
-            <button class="prevAudio"></button>
-            <button class="playAudio"></button>
-            <button class="nextAudio"></button>
-          </div>
-          <div class="sound_menu">
-            <a class="btn_download" download href="">
-              <img data-path="image/download.png" src="image/download.png" alt="настройка звука">
-            </a>
-            
-            <img class="btn_sound" src="image/btn-sound.png" alt="настройка звука">
-          </div>
-          
-
-          <div class="sound">
-            <div class="volume"> 
-              <output id="rangevalue">30</output>
-              <span>%</span>
-            </div>
-            <input id="rangeAudio" type="range" min="0" max="100" value="20" onmousemove="rangevalue1.value=value">
-          </div>
-
+      <div class="image"></div>
+      <div class="controls">
+        <div class="sound_line">
+          <progress class="progress" max="100" value="0"></progress>
         </div>
+
+        <div class="name">
+          <h1 class="sound_name"></h1>
+          <p class="sound_author"></p>
+        </div>
+        <div class="buttons">
+          <button class="prevAudio"></button>
+          <button class="playAudio"></button>
+          <button class="nextAudio"></button>
+        </div>
+        <div class="sound_menu">
+          <a class="btn_download" download href="">
+            <img
+              data-path="image/download.png"
+              src="image/download.png"
+              alt="настройка звука"
+            />
+          </a>
+          <img
+            class="btn_sound"
+            src="image/btn-sound.png"
+            alt="настройка звука"
+          />
+        </div>
+
+        <div class="sound">
+          <div class="volume">
+            <output id="rangevalue">30</output>
+            <span>%</span>
+          </div>
+          <input id="rangeAudio" type="range" min="0" max="100" value="20" />
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
