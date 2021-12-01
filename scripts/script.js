@@ -31,10 +31,10 @@ function initAudio() {
   downloadAudio()
 }
 
+// progress audio
 function metadataload() {
   progress.max = audio.duration.toFixed()
 }
-
 function timeSet() {
   progress.value = audio.currentTime.toFixed()
 }
